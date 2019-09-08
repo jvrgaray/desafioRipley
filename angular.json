@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "biblioteca": {
+    "desafioRipley": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/biblioteca",
+            "outputPath": "dist/desafioRipley",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,15 +24,9 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/bootstrap/dist/css/bootstrap.css",
-              "./node_modules/font-awesome/css/font-awesome.css",
               "src/styles.css"
             ],
-            "scripts": [
-              "./node_modules/jquery/dist/jquery.min.js",
-              "./node_modules/popper.js/dist/umd/popper.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -69,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "biblioteca:build"
+            "browserTarget": "desafioRipley:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "biblioteca:build:production"
+              "browserTarget": "desafioRipley:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "biblioteca:build"
+            "browserTarget": "desafioRipley:build"
           }
         },
         "test": {
@@ -117,15 +111,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "biblioteca:serve"
+            "devServerTarget": "desafioRipley:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "biblioteca:serve:production"
+              "devServerTarget": "desafioRipley:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "biblioteca"
+  "defaultProject": "desafioRipley"
 }
