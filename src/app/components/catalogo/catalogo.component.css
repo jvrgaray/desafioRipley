@@ -1,0 +1,36 @@
+.products {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.product {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  max-width: 25%;
+  min-width: 25%;
+}
+
+.img {
+  min-height: 150px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  flex: 0 0 auto;
+  background-position: center;
+}
+
+.name-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.name,
+.price {
+  padding: 5px;
+}

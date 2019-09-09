@@ -1,5 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment.prod';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json'
+  })
+ };
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +18,8 @@ export class DataApiService {
     private http: HttpClient
   ) { }
 
-  getAllProducts(partNumbers: string) {
-    const urlApi = `https://simple.ripley.cl/api/v2/products?partNumbers=${partNumbers}`;
-    return (this.http.get(urlApi));
+  getAllProducts() {
+    const urlApi = `${environment.apiRest}/productos`;
+    return (this.http.get(urlApi, httpOptions));
   }
 }

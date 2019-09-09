@@ -46,7 +46,7 @@ export class AuthService {
   }
 
   setUser(user: UserInterface): void {
-    let userString = JSON.stringify(user);
+    const userString = JSON.stringify(user);
     localStorage.setItem('currentUser', userString);
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataApiService } from '../../services/data-api.service';
 import { ProductoInterface } from '../../models/producto-interface';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-catalogo',
@@ -10,7 +11,8 @@ import { ProductoInterface } from '../../models/producto-interface';
 export class CatalogoComponent implements OnInit {
 
   constructor(
-    private dataApiService: DataApiService
+    private dataApiService: DataApiService,
+    private domSanitizer: DomSanitizer
   ) { }
 
   private productos: ProductoInterface;
@@ -20,8 +22,15 @@ export class CatalogoComponent implements OnInit {
   }
 
   getProducts() {
-    this.dataApiService.getAllProducts('1')
-    .subscribe((productos: ProductoInterface) => (this.productos = productos));
+    this.dataApiService.getAllProducts()
+      .subscribe((productos: ProductoInterface) => {
+        this.productos = productos;
+        console.log(productos);
+      });
+  }
+
+  getUrlImage(producto) {
+    return(this.domSanitizer.bypassSecurityTrustStyle(`url(${producto.fullImage}`));
   }
 
 }
