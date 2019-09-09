@@ -41,5 +41,10 @@ export class CatalogoComponent implements OnInit {
       data: producto,
       width: '500px'
     });
+/*
+    this.dialog.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });*/
   }
 }

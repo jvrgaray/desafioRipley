@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
   public isError = false;
 
   ngOnInit() {
+    this.afAuth.idToken.subscribe(this.validarToken.bind(this));
   }
 
   onLogin(): void {
@@ -34,7 +35,6 @@ export class LoginComponent implements OnInit {
   }
 
   onLoginFacebook() {
-    //this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider());
     this.authService.loginFacebookUser()
     .then((res) => {
       this.onLoginRedirect();
@@ -42,7 +42,6 @@ export class LoginComponent implements OnInit {
   }
 
   onLoginGoogle() {
-    //this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
     this.authService.loginGoogleUser()
     .then((res) => {
       this.onLoginRedirect();
@@ -51,6 +50,17 @@ export class LoginComponent implements OnInit {
 
   onLogout() {
     this.authService.logoutUser();
+  }
+
+  validarToken(idToken) {
+    console.log('validarToken...');
+    if (idToken) {
+      this.authService.validarToken(idToken).toPromise().then(result => {
+        this.router.navigate(['catalogo/lista']);
+      }).catch(error => {
+        this.afAuth.auth.signOut();
+      });
+    }
   }
 
   onLoginRedirect(): void {

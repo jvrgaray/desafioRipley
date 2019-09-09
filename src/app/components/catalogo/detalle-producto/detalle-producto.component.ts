@@ -18,7 +18,6 @@ export class DetalleProductoComponent implements OnInit {
   }
 
   getUrlImage(producto) {
-    console.log("getUrlImage - detalleProducto");
     return(this.domSanitizer.bypassSecurityTrustStyle(`url(${producto.fullImage}`));
   }
 }
