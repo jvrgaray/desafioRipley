@@ -17,6 +17,9 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DetalleProductoComponent } from './components/catalogo/detalle-producto/detalle-producto.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegisterComponent,
     Page404Component,
-    CatalogoComponent
+    CatalogoComponent,
+    DetalleProductoComponent
     ],
   imports: [
     BrowserModule,
@@ -36,7 +40,12 @@ import { HttpClientModule } from '@angular/common/http';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireStorageModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    BrowserAnimationsModule
+  ],
+  entryComponents: [
+    DetalleProductoComponent
   ],
   providers: [AngularFireAuth],
   bootstrap: [AppComponent]

@@ -5,11 +5,13 @@ import { LoginComponent } from './components/users/login/login.component';
 import { RegisterComponent } from './components/users/register/register.component';
 import { Page404Component } from './components/page404/page404.component';
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
+import { DetalleProductoComponent } from './components/catalogo/detalle-producto/detalle-producto.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'catalogo/lista', component: CatalogoComponent },
+  { path: 'catalogo/detalle', component: DetalleProductoComponent },
   { path: 'user/login', component: LoginComponent },
   { path: 'user/register', component: RegisterComponent },
   { path: '**', component: Page404Component }

@@ -55,7 +55,6 @@ export class LoginComponent implements OnInit {
 
   onLoginRedirect(): void {
     this.router.navigate(['catalogo/lista']);
-
   }
 
   onIsError(err): void {
