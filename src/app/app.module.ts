@@ -15,6 +15,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { CatalogoComponent } from './components/catalogo/catalogo.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     NavbarComponent,
     LoginComponent,
     RegisterComponent,
-    Page404Component
+    Page404Component,
+    CatalogoComponent
     ],
   imports: [
     BrowserModule,

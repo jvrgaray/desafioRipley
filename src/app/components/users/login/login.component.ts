@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
+import { isError } from 'util';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,8 @@ export class LoginComponent implements OnInit {
   public email = '';
   public pass = '';
 
+  public isError = false;
+
   ngOnInit() {
   }
 
@@ -27,7 +30,7 @@ export class LoginComponent implements OnInit {
     this.authService.loginEmailUser(this.email, this.pass)
     .then((res) => {
       this.onLoginRedirect();
-    }).catch(err => console.log('err', err.message()));
+    }).catch(err => this.onIsError(err));
   }
 
   onLoginFacebook() {
@@ -35,7 +38,7 @@ export class LoginComponent implements OnInit {
     this.authService.loginFacebookUser()
     .then((res) => {
       this.onLoginRedirect();
-    }).catch(err => console.log('err', err.message()));
+    }).catch(err => this.onIsError(err));
   }
 
   onLoginGoogle() {
@@ -43,7 +46,7 @@ export class LoginComponent implements OnInit {
     this.authService.loginGoogleUser()
     .then((res) => {
       this.onLoginRedirect();
-    }).catch(err => console.log('err', err.message()));
+    }).catch(err => this.onIsError(err));
   }
 
   onLogout() {
@@ -51,7 +54,15 @@ export class LoginComponent implements OnInit {
   }
 
   onLoginRedirect(): void {
-    this.router.navigate(['admin/list-books']);
+    this.router.navigate(['catalogo/lista']);
 
+  }
+
+  onIsError(err): void {
+    this.isError = true;
+    console.log('err', err.message())
+    setTimeout(() => {
+      this.isError = false;
+    }, 4000);
   }
 }
