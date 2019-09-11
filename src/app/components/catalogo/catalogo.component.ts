@@ -18,7 +18,7 @@ export class CatalogoComponent implements OnInit {
     public dialog: MatDialog
   ) { }
 
-  private productos: ProductoInterface;
+  public productos: ProductoInterface;
 
   ngOnInit() {
     this.getProducts();

@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { CatalogoComponent } from '../catalogo.component';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ProductoInterface } from 'src/app/models/producto-interface';
 
 @Component({
   selector: 'app-detalle-producto',
@@ -11,7 +11,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class DetalleProductoComponent implements OnInit {
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: CatalogoComponent,
+    @Inject(MAT_DIALOG_DATA) public data: ProductoInterface,
     private domSanitizer: DomSanitizer) { }
 
   ngOnInit() {
