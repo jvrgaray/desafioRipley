@@ -9,5 +9,5 @@ export const environment = {
     messagingSenderId: "57040264412",
     appId: "1:57040264412:web:443baca032da505e1fa819"
   },
-  apiRest: 'http://localhost:3000'
+  apiRest: 'https://lively-infinity-252403.appspot.com'
 };

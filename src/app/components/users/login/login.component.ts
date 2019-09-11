@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
   }
 
   validarToken(idToken) {
-    console.log('validarToken...');
+    console.log('validando token...');
     if (idToken) {
       this.authService.validarToken(idToken).toPromise().then(result => {
         this.router.navigate(['catalogo/lista']);

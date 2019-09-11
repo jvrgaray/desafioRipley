@@ -15,8 +15,8 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
 
+export class AuthService {
   constructor(
     private afAuth: AngularFireAuth,
     private http: HttpClient
@@ -60,11 +60,10 @@ export class AuthService {
     localStorage.setItem('currentUser', userString);
   }
 
-  validarToken(idToken: string) {
+  validarToken(idToken) {
     console.log('idToken: ' + idToken);
-    const urlApi = `${environment.apiRest}/validarToken`;
-    return (this.http.post(urlApi, { idToken }, httpOptions));
-  }
+    return this.http.post(environment.apiRest + '/validarToken', { idToken }, httpOptions);
+}
 
 
 }

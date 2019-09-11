@@ -1,7 +1,11 @@
 <h1 mat-dialog-title>
-    <p>{{data.name}}</p>
-    <img src="{{data.fullImage}}" width="200px"alt="">
+  <p>{{ data.name }}</p>
 </h1>
 <div mat-dialog-content>
- 
+  <div mat-dialog-content>
+    <img src="{{ data.fullImage }}" width="200px" alt="" />
+  </div>
+  <div mat-dialog-content>
+    <p>{{ data.prices.formattedCardPrice || data.prices.formattedOfferPrice}}</p>
+  </div>
 </div>

@@ -39,7 +39,7 @@ export class CatalogoComponent implements OnInit {
   verDetalle(producto) {
     this.dialog.open(DetalleProductoComponent, {
       data: producto,
-      width: '500px'
+      width: '1000px'
     });
 /*
     this.dialog.afterClosed().subscribe(result => {
