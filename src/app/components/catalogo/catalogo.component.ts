@@ -4,6 +4,8 @@ import { ProductoInterface } from '../../models/producto-interface';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatDialog } from '@angular/material/dialog';
 import { DetalleProductoComponent } from './detalle-producto/detalle-producto.component';
+import { retryWhen } from 'rxjs/operators';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-catalogo',
@@ -24,8 +26,12 @@ export class CatalogoComponent implements OnInit {
     this.getProducts();
   }
 
+  /* obtiene los productos invocando al service que solicita data a backend
+  se agrega reintento trasparente para usuario con un intervalo de 5000 */
   getProducts() {
-    this.dataApiService.getAllProducts()
+    this.dataApiService.getAllProducts().pipe(retryWhen (_ => {
+      return interval(5000)
+    }))
       .subscribe((productos: ProductoInterface) => {
         this.productos = productos;
         console.log(productos);
@@ -41,10 +47,5 @@ export class CatalogoComponent implements OnInit {
       data: producto,
       width: '1000px'
     });
-/*
-    this.dialog.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.animal = result;
-    });*/
   }
 }
